@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Automation Project Test" parallel="tests" thread-count="2">
+    <parameter name="baseURL" value="https://useinsider.com/"/>
+    <test name="Home Page Test">
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+</suite>
