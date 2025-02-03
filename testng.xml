@@ -6,4 +6,9 @@
             <class name="tests.HomePageTest"/>
         </classes>
     </test>
+    <test name="Career Page Test">
+        <classes>
+            <class name="tests.CareerPageTest"/>
+        </classes>
+    </test>
 </suite>

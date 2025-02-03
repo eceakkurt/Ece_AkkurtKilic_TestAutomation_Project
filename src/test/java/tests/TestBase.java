@@ -12,6 +12,7 @@ import pages.HomePage;
 public class TestBase {
     WebDriver driver;
     HomePage homePage;
+    CareersPage careersPage;
 
     @BeforeClass
     @Parameters("baseURL")
@@ -21,10 +22,15 @@ public class TestBase {
         driver.manage().window().maximize();
         driver.get(baseURL);
         homePage = new HomePage(driver);
+        careersPage = new CareersPage(driver);
     }
 
     @AfterClass
     public void tearDown() {
         driver.quit();
+    }
+
+    public boolean isElementVisible(String path, String text) {
+        return careersPage.waitForElementVisible(path, text).isDisplayed();
     }
 }
