@@ -7,7 +7,7 @@ public class QAJobsPageConstants {
     public static final String LOCATION = "position-location";
     public static final String POSITION = "position-title";
     public static final String QA = "Quality Assurance";
-    public static final String CITY = "Istanbul, Turkey";
+    public static final String CITY = "Istanbul, Turkiye";
     public static final String VIEW_ROLE = "View Role";
     public static final String JOB_DETAIL_PAGE_URL = "https://jobs.lever.co/useinsider";
     // Error messages
