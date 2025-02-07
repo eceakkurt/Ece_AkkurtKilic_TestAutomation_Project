@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.constants.CommonConstants;
+import utils.constants.PathConstants;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
 
@@ -28,8 +31,8 @@ public class BasePage {
         return "//" + classText + "[contains(text(),'" + elementText + "')]";
     }
 
-    public WebElement findElementByText(String classText, String elementText) {
-        return driver.findElement(By.xpath(generateXPath(classText, elementText)));
+    public String generateClassXPath(String classText, String elementText) {
+        return "//" + classText + "[contains(@class,'" + elementText + "')]";
     }
 
     public WebElement waitForElementVisible(String classText, String elementText) {
@@ -40,7 +43,19 @@ public class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(generateXPath(classText, elementText))));
     }
 
-    public boolean waitForElementCompare(String elementText) {
-        return wait.until(ExpectedConditions.urlContains(elementText));
+    public List<WebElement> findElementListByText(String classText, String elementText) {
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(generateClassXPath(classText, elementText))));
+    }
+
+    public void acceptCookies() {
+        waitForElementClickable(PathConstants.A, CommonConstants.ACCEPT).click();
+    }
+
+    public boolean isCorrectPageOpened(String text) {
+        return driver.getCurrentUrl().contains(text);
+    }
+
+    public boolean isElementVisible(String path, String text) {
+        return waitForElementVisible(path, text).isDisplayed();
     }
 }

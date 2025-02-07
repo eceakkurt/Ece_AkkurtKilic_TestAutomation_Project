@@ -1,10 +1,11 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import utils.HomePageConstants;
-import utils.PathConstants;
+import utils.constants.HomePageConstants;
+import utils.constants.PathConstants;
 
 public class HomePage extends BasePage {
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
