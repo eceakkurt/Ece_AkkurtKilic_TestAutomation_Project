@@ -26,9 +26,9 @@ public class TestBase implements ITestListener {
     WebDriver driver;
 
     @BeforeClass
-    @Parameters({"baseURL", "browser"})
-    public void setup(String baseURL, String browser) {
-        driverSettings(baseURL, browser);
+    @Parameters({"baseURL", "browser", "firefoxBinary"})
+    public void setup(String baseURL, String browser, String firefoxBinary) {
+        driverSettings(baseURL, browser, firefoxBinary);
         initializePages();
     }
 
@@ -75,18 +75,18 @@ public class TestBase implements ITestListener {
         }
     }
 
-    private void driverSettings(String baseURL, String browser) {
-        driver = createDriver(browser);
+    private void driverSettings(String baseURL, String browser, String firefoxBinary) {
+        driver = createDriver(browser, firefoxBinary);
         driver.manage().window().maximize();
         driver.get(baseURL);
     }
 
-    private WebDriver createDriver(String browser) {
+    private WebDriver createDriver(String browser, String firefoxBinary) {
         WebDriver driver;
         if (browser.equalsIgnoreCase(CommonConstants.CHROME)) {
             driver = getChromeDriver();
         } else if (browser.equalsIgnoreCase(CommonConstants.FIREFOX)) {
-            driver = getFirefoxDriver();
+            driver = getFirefoxDriver(firefoxBinary);
         } else {
             throw new IllegalArgumentException("Invalid browser: " + browser);
         }
@@ -99,7 +99,7 @@ public class TestBase implements ITestListener {
         return new ChromeDriver(options);
     }
 
-    private FirefoxDriver getFirefoxDriver() {
+    private FirefoxDriver getFirefoxDriver(String firefoxBinary) {
         FirefoxOptions options = new FirefoxOptions();
         options.addPreference("dom.webnotifications.enabled", false);
         options.addPreference("network.stricttransportsecurity.preloadlist", false);
@@ -107,6 +107,7 @@ public class TestBase implements ITestListener {
         options.addPreference("dom.security.https_only_mode", false);
         options.addPreference("services.settings.server", "");
         options.setAcceptInsecureCerts(true);
+        options.setBinary(firefoxBinary);
         return new FirefoxDriver(options);
     }
 }
