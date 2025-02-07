@@ -6,8 +6,7 @@ Bu repository, **TestNG ve Selenium WebDriver** kullanarak oluşturulmuş test o
 
 - **Test Senaryoları**: Web sitesi testleri için oluşturulmuş test senaryoları.
 - **Page Object Model (POM)**: Testlerin sürdürülebilirliğini artıran yapı.
-- **Test Raporlama**: TestNG raporları ve loglama mekanizması.
-- **Konfigürasyon Dosyaları**: `config.properties` ile testlerin yönetimi.
+- **Test Raporlama**: TestNG raporları ve loglama ve ekran görüntüsü mekanizması.
 
 ## 🚀 Başlangıç
 
@@ -39,3 +38,6 @@ target/surefire-reports/index.html
 
 ## 📞 İletişim
 Sorularınız için benimle iletişime geçebilirsiniz!
+
+## Test Sonuçları
+![image](https://github.com/user-attachments/assets/f689b39e-0ac2-4cd1-8087-20dd4e83c5a8)
