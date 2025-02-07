@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Automation Project Test" parallel="tests" thread-count="2">
-    <parameter name="baseURL" value="https://useinsider.com/"/>
-    <test name="Home Page Test">
+
+    <test name="Job Search Test">
+        <parameter name="baseURL" value="https://useinsider.com/careers/quality-assurance/"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.HomePageTest"/>
-        </classes>
-    </test>
-    <test name="Career Page Test">
-        <classes>
-            <class name="tests.CareerPageTest"/>
+            <class name="tests.JobSearchTest"/>
         </classes>
     </test>
 </suite>
